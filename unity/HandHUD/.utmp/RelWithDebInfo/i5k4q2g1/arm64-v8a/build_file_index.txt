@@ -1,0 +1,2 @@
+C:\Users\sand77x\Documents\JordanProjects\HandHUD\unity\HandHUD\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\sand77x\Documents\JordanProjects\HandHUD\unity\HandHUD\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
