@@ -1,0 +1,15 @@
+{
+  "questionnaireName": "Condition Selection",
+  "questions": [
+    {
+      "id": "CC_1",
+      "type": "condition",
+      "text": "Select condition:"
+    },
+    {
+      "id": "CC_2",
+      "type": "condition",
+      "text": "Select condition:"
+    }
+  ]
+}
