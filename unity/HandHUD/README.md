@@ -7,8 +7,8 @@
 ## Unity Packages
 1. XR Plugin Management
 2. Meta All-In-One SDK
-    - All Meta SDKs
-    - Meta MR Utility Kit (MRUK)
+3. Meta MR Utility Kit (MRUK)
+4. Meta XR Movement SDK
 
 ## [Meta Building Blocks](https://developers.meta.com/horizon/documentation/unity/unity-building-blocks-overview)
 1. Camera Rig
@@ -21,21 +21,39 @@
 ## Assets
 1. [Sci Fi Game UI collection FREE version](https://sungraphica.itch.io/sci-fi-game-ui-collection-free-version)
 2. [free-sci-fi-game-icons](https://krukowski.itch.io/free-sci-fi-game-icons)
-3. [Sakana Font Regular](https://www.1001fonts.com/sakana-font.html)
+3. Font - [Sakana Font Regular](https://www.1001fonts.com/sakana-font.html)
 
-## TODO
-### Misc
-- Get SPACE font
-    - Current: Sakana
-- Make futuristic canvas prefab with text + image for demo \[Need Check]
+## 🟢 World-anchored AR
+Uses QR Code tracking capability of MRUK. MRUK provides pose and transform data which can be used to project 3D objects in AR.
 
-### \[ONGOING] World-anchored AR
-- Finish QRCode and QRCodeManager classes
+### Possible alternatives:
+- AprilTags
+- Aruco Marker detection
+    - difficult / limited documentation in unity
 
-### \[ONGOING] Forearm-anchored AR
-- forearm estimation via looking at watch gesture
+### Todo:
+- make less shaky
+- finish QRCode and QRCodeManager classes
+- improve tracking when moving 
+    - try ZXing approach with [QuestCameraKit](https://github.com/xrdevrob/QuestCameraKit#3--qr-code-tracking-with-zxing)
 
-### \[ONGOING] Hand-proximal AR
-- Copy sample but less rotation \[Need Calibration]
+## 🟠 Forearm-anchored AR
+Uses Movement SDK to get forearm data (via Body_LeftHandWristTwist bone from OVRSkeleton). Pros over forearm estimation with hand-tracking: EVERYTHING. Cons: might be overkill. 
 
-### \[DONE] Tablet / Paper baseline
+### Todo:
+- make less shaky
+
+## 🟣 Hand-proximal AR
+Uses hand anchor provided by Meta SDK CameraRig building block, which provides position data for hands and even eyes. Apply some offset and it's good to go.
+
+### Todo:
+- make less shaky
+
+## 🟡 Tablet / Paper baseline - DONE
+No need to dev.
+
+## Other Todos
+- improve space-themed panel (plan is to make it more Borderlands 2-y)
+- generally make things less shaky
+- add support for choosing dominant hand
+- add support for different colors (theming)
