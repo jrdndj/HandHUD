@@ -4,6 +4,10 @@
 3. OpenXR - Popular XR standard and runtime
 4. Meta Core SDK - Meta's XR development package designed for Quest devices
 
+## Compatible Hardware
+- Meta Quest 3
+- Meta Quest 3s
+
 ## Unity Packages
 1. XR Plugin Management
 2. Meta All-In-One SDK
@@ -17,6 +21,7 @@
 
 ## Notes
 - Need to set 'Project Settings -> Player -> Active Input Handling' to 'Both'
+- Make sure you have Room Scale boundary setup in the Quest
 
 ## Assets
 1. [Sci Fi Game UI collection FREE version](https://sungraphica.itch.io/sci-fi-game-ui-collection-free-version)
@@ -36,6 +41,8 @@ Uses QR Code tracking capability of MRUK. MRUK provides pose and transform data 
 - finish QRCode and QRCodeManager classes
 - improve tracking when moving 
     - try ZXing approach with [QuestCameraKit](https://github.com/xrdevrob/QuestCameraKit#3--qr-code-tracking-with-zxing)
+- add boolean for making face camera or not
+- make marker kill itself if not tracked for (~5s maybe?)
 
 ## 🟠 Forearm-anchored AR
 Uses Movement SDK to get forearm data (via Body_LeftHandWristTwist bone from OVRSkeleton). Pros over forearm estimation with hand-tracking: EVERYTHING. Cons: might be overkill. 
@@ -57,3 +64,4 @@ No need to dev.
 - generally make things less shaky
 - add support for choosing dominant hand
 - add support for different colors (theming)
+- make system to switch conditions

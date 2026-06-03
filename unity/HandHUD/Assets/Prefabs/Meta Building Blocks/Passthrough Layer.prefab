@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: meta.xr.mrutilitykit::Meta.XR.PassthroughCameraAccess
   CameraPosition: 0
-  RequestedResolution: {x: 1280, y: 960}
-  _maxFramerate: 60
-  TargetMaterial: {fileID: 0}
+  RequestedResolution: {x: 640, y: 360}
+  _maxFramerate: 30
+  TargetMaterial: {fileID: 2100000, guid: 116bceeeb93287d4e8b7f683ee9b3025, type: 2}
   _texturePropertyName: 
