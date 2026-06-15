@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Instruction_Panels;
+﻿using Instruction_Panels;
 using Meta.XR.MRUtilityKit;
 using Study;
 using UnityEngine;
@@ -21,7 +20,7 @@ namespace Conditions
             mrukInstance.SceneSettings.TrackableRemoved.AddListener(OnTrackableRemoved);
         }
 
-        protected override void OnActivated(PanelData _)
+        protected override void OnActivated()
         {
             if (!mrukInstance)
             {
@@ -53,10 +52,10 @@ namespace Conditions
 
             int markerId = ParsePayload(trackable);
 
-            var markerData = StudyConfig.GetPanelData(markerId);
-            var prefab = GetPanelPrefab(markerData.panelType);
+            PanelData markerData = StudyConfig.GetPanelData(markerId);
+            InstructionPanel prefab = GetPanelPrefab(markerData.panelType);
 
-            var instance = Instantiate(prefab, trackable.transform);
+            InstructionPanel instance = Instantiate(prefab, trackable.transform);
 
             instance.GetComponent<FaceCamera>().enabled = true;
             instance.transform.localPosition = positionOffset;
@@ -78,6 +77,11 @@ namespace Conditions
             return int.TryParse(trackable.MarkerPayloadString, out var value)
                 ? value
                 : -1;
+        }
+
+        public override void SetInstructionPanel(PanelData _)
+        {
+            // do nothing since we use QR code for instructions
         }
     }
 }

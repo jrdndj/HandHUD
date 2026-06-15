@@ -5,9 +5,9 @@ namespace Conditions
 {
     public abstract class ConditionManager : MonoBehaviour
     {
-        public void Activate(PanelData panelData)
+        public void Activate()
         {
-            OnActivated(panelData);
+            OnActivated();
         }
 
         public void Deactivate()
@@ -16,13 +16,17 @@ namespace Conditions
         }
 
         protected InstructionPanel GetPanelPrefab(PanelType panelType) =>
-            SceneController.Instance.GetPanelPrefab(panelType);
+            TaskController.Instance.GetPanelPrefab(panelType);
 
-        protected virtual void OnActivated(PanelData panelData)
+        protected virtual void OnActivated()
         {
         }
 
         protected virtual void OnDeactivated()
+        {
+        }
+
+        public virtual void SetInstructionPanel(PanelData panelData)
         {
         }
     }

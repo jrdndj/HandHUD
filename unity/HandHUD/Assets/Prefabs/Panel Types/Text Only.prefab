@@ -306,7 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Utility.FloatNearHand
   handAnchor: {fileID: 0}
-  positionOffset: {x: -0.09, y: 0.2, z: 0.16}
+  positionOffset: {x: -0.04, y: 0.19, z: 0.16}
+  camera: {fileID: 0}
 --- !u!1 &4734094314592090903
 GameObject:
   m_ObjectHideFlags: 0

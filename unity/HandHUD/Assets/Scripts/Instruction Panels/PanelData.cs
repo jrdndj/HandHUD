@@ -12,16 +12,28 @@ namespace Instruction_Panels
     [System.Serializable]
     public class PanelData
     {
-        public string message = "";
+        public string message;
         public Sprite sprite;
-        public Color color = Color.orange;
-        public PanelType panelType = PanelType.ImageAndText;
+        public Color color;
+        public PanelType panelType;
 
-        public static readonly PanelData Invalid = new()
+        private const int AlphaValue = 230;
+
+        public PanelData(Color color, string message, PanelType panelType, Sprite sprite, bool slightlyTransparent = true)
         {
-            message = "INVALID MARKER",
-            color = Color.red,
-            panelType = PanelType.TextOnly
-        };
+            this.color = color;
+            this.message = message;
+            this.panelType = panelType;
+            this.sprite = sprite;
+
+            if (slightlyTransparent) this.color.a = AlphaValue;
+        }
+
+        public static readonly PanelData Invalid = new(
+            Color.red,
+            "INVALID MARKER",
+            PanelType.TextOnly,
+            null
+        );
     }
 }

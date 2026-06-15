@@ -10,12 +10,15 @@ namespace Utility
         {
             cameraTransform = Camera.main?.transform;
 
-            if (cameraTransform != null) return;
+            if (cameraTransform != null)
+            {
+                enabled = false;
+                Debug.Log("Failed to find Main Camera in scene.");
+                return;
+            }
 
             Debug.LogWarning("No Main Camera found.");
             enabled = false;
-
-            cameraTransform = Camera.main.transform;
         }
 
         private void LateUpdate()

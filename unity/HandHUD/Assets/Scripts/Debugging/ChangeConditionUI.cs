@@ -16,13 +16,12 @@ namespace Debugging
 
         public TMP_Text header;
 
-        // best bone so far
         private const int WristParent = (int)OVRSkeleton.BoneId.Body_RightHandWrist;
 
         public Vector3 positionOffset = new Vector3(0.23f, 0.13f, -0.08f);
         public Vector3 rotationOffset = new Vector3(0f, 126f, 0);
 
-         IEnumerator Start()
+        private IEnumerator Start()
         {
             if (ovrSkeleton == null)
                 ovrSkeleton = FindAnyObjectByType<OVRSkeleton>();
@@ -40,17 +39,17 @@ namespace Debugging
             waButton.onClick.AddListener(() =>
             {
                 header.text = "Current: WA";
-                SceneController.Instance.SwitchCondition(Condition.WorldAnchored);
+                TaskController.Instance.SwitchCondition(Condition.WorldAnchored);
             });
             faButton.onClick.AddListener(() =>
             {
                 header.text = "Current: FA";
-                SceneController.Instance.SwitchCondition(Condition.ForearmAnchored);
+                TaskController.Instance.SwitchCondition(Condition.ForearmAnchored);
             });
             hpButton.onClick.AddListener(() =>
             {
                 header.text = "Current: HP";
-                SceneController.Instance.SwitchCondition(Condition.HandProximal);
+                TaskController.Instance.SwitchCondition(Condition.HandProximal);
             });
         }
     }

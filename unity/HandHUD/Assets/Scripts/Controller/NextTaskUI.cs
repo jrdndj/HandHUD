@@ -1,37 +1,38 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Utility
+namespace Controller
 {
-    public class StickToForearm : MonoBehaviour
+    public class NextTaskUI : MonoBehaviour
     {
         public OVRSkeleton ovrSkeleton;
-    
-        // best bone so far
-        private const int WristParent = (int)OVRSkeleton.BoneId.Body_LeftHandWristTwist;
+        public Button nextTaskButton;
 
-        public Vector3 positionOffset = new Vector3(0.08f, 0.02f, -0.17f);
-        public Vector3 rotationOffset = new Vector3(63.3f, -180f, 0);
+        private const int PalmParent = (int)OVRSkeleton.BoneId.Body_RightHandPalm;
+
+        public Vector3 positionOffset = new Vector3(0.3f, 0.72f, -0.26f);
+        public Vector3 rotationOffset = new Vector3(-31f, 141f, 34f);
 
         private IEnumerator Start()
         {
             if (ovrSkeleton == null)
                 ovrSkeleton = FindAnyObjectByType<OVRSkeleton>();
-            
+
             // skeleton might initialize late
             yield return new WaitUntil(() =>
                 ovrSkeleton.IsInitialized && ovrSkeleton.IsDataValid);
 
-            Transform wrist = ovrSkeleton.Bones[WristParent].Transform;
+            Transform wrist = ovrSkeleton.Bones[PalmParent].Transform;
 
             transform.SetParent(wrist, false);
-        }
-
-        private void LateUpdate()
-        {
-            if (!transform.hasChanged) return;
             transform.localPosition = positionOffset;
             transform.localRotation = Quaternion.Euler(rotationOffset);
+
+            nextTaskButton.onClick.AddListener(() =>
+            {
+                TaskController.Instance.ProceedToNextTask();
+            });
         }
     }
 }

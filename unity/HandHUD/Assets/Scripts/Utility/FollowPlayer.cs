@@ -18,21 +18,21 @@ namespace Utility
         // Offset from player/camera
         public Vector3 offset = new Vector3(0f, 0f, 0.8f);
 
-        private float timer;
+        private float _timer;
 
-        private Vector3 desiredPosition;
+        private Vector3 _desiredPosition;
 
-        void Start()
+        private void Start()
         {
-            desiredPosition = transform.position;
+            _desiredPosition = transform.position;
         }
 
-        void Update()
+        private void Update()
         {
-            timer += Time.deltaTime;
+            _timer += Time.deltaTime;
 
             // Every few seconds, decide whether to update target position
-            if (timer >= repositionInterval)
+            if (_timer >= repositionInterval)
             {
                 Vector3 candidatePosition = target.position + offset;
 
@@ -41,16 +41,16 @@ namespace Utility
 
                 if (distance > followThreshold)
                 {
-                    desiredPosition = candidatePosition;
+                    _desiredPosition = candidatePosition;
                 }
 
-                timer = 0f;
+                _timer = 0f;
             }
 
             // Smooth movement every frame
             transform.position = Vector3.Lerp(
                 transform.position,
-                desiredPosition,
+                _desiredPosition,
                 smoothSpeed * Time.deltaTime
             );
         }

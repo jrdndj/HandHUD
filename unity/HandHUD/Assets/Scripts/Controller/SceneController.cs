@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
 using Conditions;
 using Instruction_Panels;
 using Study;
 using UnityEngine;
 
-using static Study.StudyConfig;
-
-public class SceneController : MonoBehaviour
+public class TaskController : MonoBehaviour
 {
     [SerializeField] private InstructionPanel imageAndTextPanel;
     [SerializeField] private InstructionPanel imageOnlyPanel;
@@ -17,9 +14,12 @@ public class SceneController : MonoBehaviour
     [SerializeField] private ConditionManager hpManager;
     [SerializeField] private ConditionManager waManager;
 
-    private Participant participant;
+    private Participant _participant;
+    private int _currentConditionIdx = 0;
+    private int _currentTaskIdx = 0;
+    private int _currentSuperBlockIdx = 0;
 
-    public static SceneController Instance;
+    public static TaskController Instance;
 
     private void Awake()
     {
@@ -28,6 +28,50 @@ public class SceneController : MonoBehaviour
 
     private void Start()
     {
+        SwitchCondition(StudyConfig.GetCondition(_participant, _currentConditionIdx));
+        GetCurrentManager().SetInstructionPanel(StudyConfig.GetPanelData(_currentTaskIdx));
+    }
+
+    public void ProceedToNextTask()
+    {
+        _currentTaskIdx++;
+        if (_currentTaskIdx >= StudyConfig.TasksPerCondition)
+        {
+            ProceedToNextCondition();
+        }
+        else
+        {
+            GetCurrentManager().SetInstructionPanel(StudyConfig.GetPanelData(_currentTaskIdx));
+        }
+    }
+
+    private void ProceedToNextCondition()
+    {
+        _currentConditionIdx++;
+        if (_currentConditionIdx >= StudyConfig.ConditionsPerSuperBlock)
+        {
+            ProceedToNextSuperBlock();
+        }
+        else
+        {
+            _currentTaskIdx = 0;
+            SwitchCondition(StudyConfig.GetCondition(_participant, _currentConditionIdx));
+        }
+    }
+
+    private void ProceedToNextSuperBlock()
+    {
+        _currentSuperBlockIdx++;
+        if (_currentSuperBlockIdx >= StudyConfig.SuperBlockCount)
+        {
+            // TODO: done
+        }
+        else
+        {
+            _currentTaskIdx = 0;
+            _currentConditionIdx = 0;
+            SwitchCondition(StudyConfig.GetCondition(_participant, _currentConditionIdx));
+        }
     }
 
     public void SwitchCondition(Condition condition)
@@ -39,15 +83,15 @@ public class SceneController : MonoBehaviour
         switch (condition)
         {
             case Condition.WorldAnchored:
-                waManager.Activate(StudyConfig.GetPanelData(0));
+                waManager.Activate();
                 break;
 
             case Condition.ForearmAnchored:
-                faManager.Activate(StudyConfig.GetPanelData(0));
+                faManager.Activate();
                 break;
 
             case Condition.HandProximal:
-                hpManager.Activate(StudyConfig.GetPanelData(0));
+                hpManager.Activate();
                 break;
 
             // case Condition.TabletBaseline:
@@ -68,5 +112,20 @@ public class SceneController : MonoBehaviour
             PanelType.ImageAndText => imageAndTextPanel,
             _ => throw new ArgumentOutOfRangeException()
         };
+    }
+
+    private ConditionManager GetCurrentManager()
+    {
+        switch (StudyConfig.GetCondition(_participant, _currentConditionIdx))
+        {
+            case Condition.WorldAnchored:
+                return waManager;
+            case Condition.ForearmAnchored:
+                return faManager;
+            case Condition.HandProximal:
+                return hpManager;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }

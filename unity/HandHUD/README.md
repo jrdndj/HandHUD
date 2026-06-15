@@ -38,7 +38,6 @@ Uses QR Code tracking capability of MRUK. MRUK provides pose and transform data 
 
 ### Todo:
 - make less shaky
-- finish QRCode and QRCodeManager classes
 - improve tracking when moving 
     - try ZXing approach with [QuestCameraKit](https://github.com/xrdevrob/QuestCameraKit#3--qr-code-tracking-with-zxing)
 - add boolean for making face camera or not
@@ -66,4 +65,3 @@ No need to dev.
 - generally make things less shaky
 - add support for choosing dominant hand
 - add support for different colors (theming)
-- make system to switch conditions
