@@ -10,7 +10,7 @@ namespace Utility
         // best bone so far
         private const int WristParent = (int)OVRSkeleton.BoneId.Body_LeftHandWristTwist;
 
-        public Vector3 positionOffset = new Vector3(0.05f, 0.02f, -0.17f);
+        public Vector3 positionOffset = new Vector3(0.08f, 0.02f, -0.17f);
         public Vector3 rotationOffset = new Vector3(63.3f, -180f, 0);
 
         IEnumerator Start()

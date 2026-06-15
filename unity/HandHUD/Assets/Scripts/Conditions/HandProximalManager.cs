@@ -1,24 +1,23 @@
-﻿using Core;
-using UnityEngine;
+﻿using Instruction_Panels;
 using Utility;
 
-namespace Managers
+namespace Conditions
 {
-    public class HPConditionManager : ConditionManagerBase
+    public class HandProximalManager : ConditionManager
     {
         private bool _disabled = true;
         private InstructionPanel _instance;
         
-        protected override void OnActivated()
+        protected override void OnActivated(PanelData panelData)
         {
             _disabled = false;
-            var prefab = GetPanelPrefab(MarkerData.panelType);
+            var prefab = GetPanelPrefab(panelData.panelType);
             _instance = Instantiate(prefab, transform, false);
             
             _instance.GetComponent<FloatNearHand>().enabled = true;
             _instance.GetComponent<FaceCamera>().enabled = true;
             
-            _instance.UpdateData(MarkerData);
+            _instance.UpdateData(panelData);
         }
         
         protected override void OnDeactivated()

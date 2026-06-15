@@ -43,6 +43,7 @@ Uses QR Code tracking capability of MRUK. MRUK provides pose and transform data 
     - try ZXing approach with [QuestCameraKit](https://github.com/xrdevrob/QuestCameraKit#3--qr-code-tracking-with-zxing)
 - add boolean for making face camera or not
 - make marker kill itself if not tracked for (~5s maybe?)
+- markers persist after condition change
 
 ## 🟠 Forearm-anchored AR
 Uses Movement SDK to get forearm data (via Body_LeftHandWristTwist bone from OVRSkeleton). Pros over forearm estimation with hand-tracking: EVERYTHING. Cons: might be overkill. 
@@ -55,6 +56,7 @@ Uses hand anchor provided by Meta SDK CameraRig building block, which provides p
 
 ### Todo:
 - make less shaky
+- depends on rotation need to fix that
 
 ## 🟡 Tablet / Paper baseline - DONE
 No need to dev.

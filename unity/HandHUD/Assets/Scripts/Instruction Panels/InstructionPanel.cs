@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Core
+namespace Instruction_Panels
 {
     public class InstructionPanel : MonoBehaviour
     {
@@ -10,26 +10,26 @@ namespace Core
         [SerializeField] private Image canvasImg;
         [SerializeField] private Image canvasBg;
 
-        public void UpdateData(MarkerData markerData)
+        public void UpdateData(PanelData markerData)
         {
             SetText(markerData.message);
             SetSprite(markerData.sprite);
             SetColor(markerData.color);
         }
 
-        public void SetText(string text)
+        private void SetText(string text)
         {
             if (canvasText != null)
                 canvasText.text = text;
         }
 
-        public void SetSprite(Sprite sprite)
+        private void SetSprite(Sprite sprite)
         {
             if (canvasImg != null && sprite != null)
                 canvasImg.sprite = sprite;
         }
 
-        public void SetColor(Color color)
+        private void SetColor(Color color)
         {
             canvasBg.color = color;
         }

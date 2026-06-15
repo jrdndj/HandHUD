@@ -1,9 +1,10 @@
 ﻿using System.Collections;
-using Core;
+using Study;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Utility
+namespace Debugging
 {
     public class ChangeConditionUI : MonoBehaviour
     {
@@ -13,13 +14,15 @@ namespace Utility
         public Button faButton;
         public Button hpButton;
 
+        public TMP_Text header;
+
         // best bone so far
         private const int WristParent = (int)OVRSkeleton.BoneId.Body_RightHandWrist;
 
         public Vector3 positionOffset = new Vector3(0.23f, 0.13f, -0.08f);
         public Vector3 rotationOffset = new Vector3(0f, 126f, 0);
 
-        IEnumerator Start()
+         IEnumerator Start()
         {
             if (ovrSkeleton == null)
                 ovrSkeleton = FindAnyObjectByType<OVRSkeleton>();
@@ -34,9 +37,21 @@ namespace Utility
             transform.localPosition = positionOffset;
             transform.localRotation = Quaternion.Euler(rotationOffset);
 
-            waButton.onClick.AddListener(() => ContextManager.Instance.SwitchCondition(Condition.WorldAnchored));
-            faButton.onClick.AddListener(() => ContextManager.Instance.SwitchCondition(Condition.ForearmAnchored));
-            hpButton.onClick.AddListener(() => ContextManager.Instance.SwitchCondition(Condition.HandProximal));
+            waButton.onClick.AddListener(() =>
+            {
+                header.text = "Current: WA";
+                SceneController.Instance.SwitchCondition(Condition.WorldAnchored);
+            });
+            faButton.onClick.AddListener(() =>
+            {
+                header.text = "Current: FA";
+                SceneController.Instance.SwitchCondition(Condition.ForearmAnchored);
+            });
+            hpButton.onClick.AddListener(() =>
+            {
+                header.text = "Current: HP";
+                SceneController.Instance.SwitchCondition(Condition.HandProximal);
+            });
         }
     }
 }

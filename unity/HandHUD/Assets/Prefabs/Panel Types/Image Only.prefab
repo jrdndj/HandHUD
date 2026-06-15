@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Utility.StickToForearm
   ovrSkeleton: {fileID: 0}
-  positionOffset: {x: 0.05, y: 0.02, z: -0.17}
+  positionOffset: {x: 0.08, y: 0.02, z: -0.17}
   rotationOffset: {x: 63.3, y: -180, z: 0}
 --- !u!114 &4336309128766758748
 MonoBehaviour:
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Utility.FloatNearHand
   handAnchor: {fileID: 0}
-  positionOffset: {x: 0, y: 0.2, z: 0.2}
+  positionOffset: {x: -0.09, y: 0.2, z: 0.16}
 --- !u!1 &4734094314592090903
 GameObject:
   m_ObjectHideFlags: 0
