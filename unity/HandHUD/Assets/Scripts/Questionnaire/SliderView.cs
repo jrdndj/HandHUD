@@ -1,39 +1,42 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class SliderView : MonoBehaviour
+namespace Questionnaire
 {
-    [SerializeField] private Slider slider;
-    [SerializeField] private TextMeshProUGUI lowLabelText;
-    [SerializeField] private TextMeshProUGUI highLabelText;
-
-    public void UpdateView(float min, float max, string[] choices)
+    public class SliderView : MonoBehaviour
     {
-        if (choices != null && choices.Length >= 2)
+        [SerializeField] private Slider slider;
+        [SerializeField] private TextMeshProUGUI lowLabelText;
+        [SerializeField] private TextMeshProUGUI highLabelText;
+
+        public void UpdateView(float min, float max, string[] choices)
         {
-            lowLabelText.text = choices[0];
-            highLabelText.text = choices[1];
+            if (choices != null && choices.Length >= 2)
+            {
+                lowLabelText.text = choices[0];
+                highLabelText.text = choices[1];
+            }
+            else
+            {
+                lowLabelText.text = "";
+                highLabelText.text = "";
+            }
+
+            slider.minValue = min;
+            slider.maxValue = max;
+            slider.wholeNumbers = true;
+            slider.value = min;
         }
-        else
+
+        public float GetScore()
         {
-            lowLabelText.text = "";
-            highLabelText.text = "";
+            return slider.value;
         }
 
-        slider.minValue = min;
-        slider.maxValue = max;
-        slider.wholeNumbers = true;
-        slider.value = min;
-    }
-
-    public float GetScore()
-    {
-        return slider.value;
-    }
-
-    public void SetScore(float score)
-    {
-        slider.value = score;
+        public void SetScore(float score)
+        {
+            slider.value = score;
+        }
     }
 }

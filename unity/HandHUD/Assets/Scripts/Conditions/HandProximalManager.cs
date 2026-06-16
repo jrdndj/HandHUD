@@ -6,10 +6,13 @@ namespace Conditions
     public class HandProximalManager : ConditionManager
     {
         private InstructionPanel _instance;
-        
+
         protected override void OnDeactivated()
         {
+            if (!_instance) return;
+
             Destroy(_instance.gameObject);
+            _instance = null;
         }
 
         public override void SetInstructionPanel(PanelData panelData)

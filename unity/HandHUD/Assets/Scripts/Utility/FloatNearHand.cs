@@ -6,7 +6,7 @@ namespace Utility
     {
         public GameObject handAnchor;
         public Vector3 positionOffset = new(-0.02f, 0.2f, 0.2f);
-        public Camera camera;
+        public new Camera camera;
 
         private const string HandAnchorName = "LeftHandAnchor";
 

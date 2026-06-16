@@ -1,29 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Utility
 {
     public class FaceCamera : MonoBehaviour
     {
-        public Transform cameraTransform;
+        public new Camera camera;
 
         private void Start()
         {
-            cameraTransform = Camera.main?.transform;
+            camera = Camera.main;
 
-            if (cameraTransform != null)
+            if (camera == null)
             {
                 enabled = false;
                 Debug.Log("Failed to find Main Camera in scene.");
-                return;
             }
-
-            Debug.LogWarning("No Main Camera found.");
-            enabled = false;
         }
 
         private void LateUpdate()
         {
-            Vector3 dir = transform.position - cameraTransform.position;
+            Vector3 dir = transform.position - camera.transform.position;
 
             transform.rotation = Quaternion.LookRotation(dir);
         }

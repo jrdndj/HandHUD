@@ -1,4 +1,5 @@
-﻿using Instruction_Panels;
+﻿using Controller;
+using Instruction_Panels;
 using UnityEngine;
 
 namespace Conditions

@@ -9,7 +9,10 @@ namespace Conditions
 
         protected override void OnDeactivated()
         {
+            if (!_instance) return;
+
             Destroy(_instance.gameObject);
+            _instance = null;
         }
 
         public override void SetInstructionPanel(PanelData panelData)

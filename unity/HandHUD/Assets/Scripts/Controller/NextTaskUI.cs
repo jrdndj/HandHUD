@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Controller
@@ -11,8 +13,26 @@ namespace Controller
 
         private const int PalmParent = (int)OVRSkeleton.BoneId.Body_RightHandPalm;
 
-        public Vector3 positionOffset = new Vector3(0.3f, 0.72f, -0.26f);
-        public Vector3 rotationOffset = new Vector3(-31f, 141f, 34f);
+        public Vector3 positionOffset = new(0.04f, -0.04f, 0f);
+        public Vector3 rotationOffset = new(-87.7f, 79f, 192.4f);
+
+        private void OnEnable()
+        {
+            TaskController.OnStateChanged += OnTaskControllerOnOnStateChanged;
+
+            nextTaskButton.onClick.AddListener(
+                TaskController.Instance.CompleteCurrentTask
+            );
+        }
+
+        private void OnDisable()
+        {
+            TaskController.OnStateChanged -= OnTaskControllerOnOnStateChanged;
+
+            nextTaskButton.onClick.RemoveListener(
+                TaskController.Instance.CompleteCurrentTask
+            );
+        }
 
         private IEnumerator Start()
         {
@@ -28,11 +48,16 @@ namespace Controller
             transform.SetParent(wrist, false);
             transform.localPosition = positionOffset;
             transform.localRotation = Quaternion.Euler(rotationOffset);
+        }
 
-            nextTaskButton.onClick.AddListener(() =>
+        private void OnTaskControllerOnOnStateChanged(StudyState state)
+        {
+            nextTaskButton.interactable = state switch
             {
-                TaskController.Instance.ProceedToNextTask();
-            });
+                StudyState.RunningTask => true,
+                StudyState.ConditionQuestionnaire or StudyState.Finished => false,
+                _ => nextTaskButton.interactable
+            };
         }
     }
 }

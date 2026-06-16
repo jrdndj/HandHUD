@@ -1,66 +1,69 @@
 using System;
 using System.Collections.Generic;
 
-[Serializable]
-public class ResponseItem
+namespace Questionnaire
 {
-    public string id;
-    public float score;
-
-    public ResponseItem(string id, float score)
+    [Serializable]
+    public class ResponseItem
     {
-        this.id = id;
-        this.score = score;
+        public string id;
+        public float score;
+
+        public ResponseItem(string id, float score)
+        {
+            this.id = id;
+            this.score = score;
+        }
     }
-}
 
-[Serializable]
-public class QuestionnaireResult
-{
-    public string questionnaireName;
-    public string timestamp;
-    public List<ResponseItem> responses = new List<ResponseItem>();
-}
+    [Serializable]
+    public class QuestionnaireResult
+    {
+        public string questionnaireName;
+        public string timestamp;
+        public List<ResponseItem> responses = new List<ResponseItem>();
+    }
 
 
-[Serializable]
-public class ParticipantData
-{
-    public string participantID;
-    public List<QuestionnaireResult> questionnaireResults = new List<QuestionnaireResult>();
-}
+    [Serializable]
+    public class ParticipantData
+    {
+        public string participantID;
+        public List<QuestionnaireResult> questionnaireResults = new List<QuestionnaireResult>();
+    }
 
-[Serializable]
-public class AllResultsData
-{
-    public List<ParticipantData> participants = new List<ParticipantData>();
-}
-
+    [Serializable]
+    public class AllResultsData
+    {
+        public List<ParticipantData> participants = new List<ParticipantData>();
+    }
 
 
 
-[Serializable]
-public class QuestionData
-{
-    // Common fields
-    public string id;
-    public string type;
-    public string text;
 
-    // Slider
-    public float minValue;
-    public float maxValue;
+    [Serializable]
+    public class QuestionData
+    {
+        // Common fields
+        public string id;
+        public string type;
+        public string text;
 
-    // Radio
-    public int steps;
+        // Slider
+        public float minValue;
+        public float maxValue;
 
-    // Shared choice labels for both radio and multiple choice
-    public List<string> choices;
-}
+        // Radio
+        public int steps;
 
-[Serializable]
-public class QuestionnaireData
-{
-    public string questionnaireName;
-    public List<QuestionData> questions;
+        // Shared choice labels for both radio and multiple choice
+        public List<string> choices;
+    }
+
+    [Serializable]
+    public class QuestionnaireData
+    {
+        public string questionnaireName;
+        public List<QuestionData> questions;
+    }
 }

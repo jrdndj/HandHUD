@@ -78,10 +78,5 @@ namespace Conditions
                 ? value
                 : -1;
         }
-
-        public override void SetInstructionPanel(PanelData _)
-        {
-            // do nothing since we use QR code for instructions
-        }
     }
 }

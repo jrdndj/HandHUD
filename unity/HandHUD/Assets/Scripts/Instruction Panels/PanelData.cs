@@ -17,7 +17,7 @@ namespace Instruction_Panels
         public Color color;
         public PanelType panelType;
 
-        private const int AlphaValue = 230;
+        private const float AlphaValue = 0.65f;
 
         public PanelData(Color color, string message, PanelType panelType, Sprite sprite, bool slightlyTransparent = true)
         {
