@@ -124,7 +124,9 @@ Participant
     └── Task 4
 ```
 
-The condition order should be counterbalanced using a balanced Latin square or Williams design.
+The condition order should be counterbalanced using a balanced Latin square or Williams design. 
+
+This has been updated. Refer to [this new file](/handhud-latinsquare.md)
 
 ---
 
