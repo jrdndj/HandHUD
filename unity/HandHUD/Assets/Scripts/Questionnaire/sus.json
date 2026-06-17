@@ -1,0 +1,105 @@
+﻿{
+  "questionnaireName": "System Usability Scale",
+  "questions": [
+    {
+      "id": "SUS_1",
+      "type": "radio",
+      "text": "I think that I would like to use this system frequently",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_2",
+      "type": "radio",
+      "text": "I found the system unnecessarily complex",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_3",
+      "type": "radio",
+      "text": "I thought the system was easy to use",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_4",
+      "type": "radio",
+      "text": "I think that I would need the support of a technical person to be able to use this system",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_5",
+      "type": "radio",
+      "text": "I found the various functions in this system were well integrated",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_6",
+      "type": "radio",
+      "text": "I thought there was too much inconsistency in this system",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_7",
+      "type": "radio",
+      "text": "I would imagine that most people would learn to use this system very quickly",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_8",
+      "type": "radio",
+      "text": "I found the system very cumbersome to use",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_9",
+      "type": "radio",
+      "text": "I felt very confident using the system",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    },
+    {
+      "id": "SUS_10",
+      "type": "radio",
+      "text": "I needed to learn a lot of things before I could get going with this system",
+      "steps": 5,
+      "choices": [
+        "Strongly Disagree",
+        "Strongly Agree"
+      ]
+    }
+  ]
+}

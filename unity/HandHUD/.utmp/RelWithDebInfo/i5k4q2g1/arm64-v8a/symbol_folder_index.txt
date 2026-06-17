@@ -1,0 +1,1 @@
+C:\Users\sand77x\Documents\JordanProjects\HandHUD\unity\HandHUD\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\i5k4q2g1\obj\arm64-v8a
