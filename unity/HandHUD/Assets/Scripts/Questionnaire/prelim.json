@@ -1,0 +1,15 @@
+{
+  "questionnaireName": "Participant Select",
+  "questions": [
+    {
+      "id": "PS_1",
+      "type": "radio",
+      "text": "Select participant number",
+      "steps": 12,
+      "choices": [
+        "",
+        ""
+      ]
+    }
+  ]
+}

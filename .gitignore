@@ -1,0 +1,41 @@
+# ========== Unity ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Addressables / memory / caches
+[Aa]rtifacts/
+[Uu]ser[Ss]ettings/
+
+# Visual Studio / Rider / IDE
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Unity crash reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.aab
+*.exe
+*.app
+
+# Optional: exclude local packages cache
+# Packages/packages-lock.json (ONLY if you want fully reproducible builds)

@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Questionnaire
+{
+    public class QuestionnaireManager : MonoBehaviour
+    {
+        [Header("Questionnaire Files")] [SerializeField]
+        private List<TextAsset> questionnaireSequence;
+
+        [Header("References")]
+        // Responsible for displaying and handling the UI.
+        [SerializeField]
+        private QuestionnaireController questionnaireController;
+
+        private int _currentSequenceIndex; // Tracks progress through the questionnaireSequence list
+
+        // Some hardcoded/fallback values.
+        // modify this for you own implementations
+        private const string DefaultParticipantID = "P_Standalone";
+
+        public event Action OnSequenceFinished;
+
+        void Start()
+        {
+            // Since these are just hardcoded values, adjust based on your own context
+            string participantID = DefaultParticipantID;
+
+            Debug.Log($"Standalone mode. Using default ID: {participantID}");
+
+            questionnaireController.OnQuestionnaireCompleted += HandleQuestionnaireCompleted;
+
+            if (questionnaireController != null)
+            {
+                _currentSequenceIndex = 0;
+                StartNextQuestionnaire(participantID);
+            }
+            else
+            {
+                Debug.LogError("QuestionnaireController not assigned in Inspector!");
+            }
+        }
+
+        private void OnDestroy()
+        {
+            questionnaireController.OnQuestionnaireCompleted -= HandleQuestionnaireCompleted;
+        }
+
+        private void StartNextQuestionnaire(string participantID)
+        {
+            if (_currentSequenceIndex >= questionnaireSequence.Count)
+            {
+                Debug.Log($"Reached end of questionnaire sequence. Unloading scene.");
+
+                HandleSequenceFinished();
+                return;
+            }
+
+            TextAsset nextFile = questionnaireSequence[_currentSequenceIndex];
+            Debug.Log($"Starting questionnaire file: {nextFile.name}");
+            questionnaireController.StartQuestionnaire(nextFile, participantID);
+        }
+
+        private void HandleQuestionnaireCompleted(QuestionnaireResult _)
+        {
+            // Default session data (change if needed)
+            string participantID = DefaultParticipantID;
+
+            _currentSequenceIndex++;
+            StartNextQuestionnaire(participantID);
+        }
+
+        private void HandleSequenceFinished()
+        {
+            // Modify if needed
+            OnSequenceFinished?.Invoke();
+            Debug.Log("Questionnaire sequence is complete.");
+        }
+    }
+}
