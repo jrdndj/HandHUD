@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &75886031 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1199923333829574410, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-  m_PrefabInstance: {fileID: 5800669380014408604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &284483647
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,26 +309,6 @@ MonoBehaviour:
   m_SendPointerHoverToParent: 1
   _useInitialPressPositionForDrag: 1
   _exclusiveMode: 1
---- !u!1 &305919856 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 636801484117771731, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-  m_PrefabInstance: {fileID: 5800669380014408604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &305919862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305919856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d3a1facc5f29d4ea65d3af68af5c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.TagSetFilter
-  _requireTags: []
-  _excludeTags:
-  - LeftHandOnly
 --- !u!114 &380446960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2486524492134556074, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
@@ -563,26 +538,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1821738324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &552331779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3924938850105419366, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-  m_PrefabInstance: {fileID: 5800669380014408604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &552331784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552331779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d3a1facc5f29d4ea65d3af68af5c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.TagSetFilter
-  _requireTags: []
-  _excludeTags:
-  - LeftHandOnly
 --- !u!1 &707110748
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +746,6 @@ GameObject:
   - component: {fileID: 939355040}
   - component: {fileID: 939355042}
   - component: {fileID: 939355041}
-  - component: {fileID: 939355043}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -884,18 +838,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!225 &939355043
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939355038}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1048541532
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +850,6 @@ GameObject:
   - component: {fileID: 1048541536}
   - component: {fileID: 1048541535}
   - component: {fileID: 1048541534}
-  - component: {fileID: 1048541538}
   m_Layer: 0
   m_Name: ISDK_PokeCanvasInteraction
   m_TagString: Untagged
@@ -1118,20 +1059,6 @@ MonoBehaviour:
     ReEnterDistance: 0.02
   _closeDistanceThreshold: 0.001
   _tiebreakerScore: 0
---- !u!114 &1048541538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048541532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdeaf26e845dc5841bcd31de97d26003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.TagSet
-  _tags:
-  - LeftHandOnly
 --- !u!1 &1317405860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1518,7 @@ MonoBehaviour:
   hpManager: {fileID: 707110749}
   waManager: {fileID: 502961880}
   questionnaireParent: {fileID: 1770664823}
-  preliminaryQuestionnairePrefab: {fileID: 3617452828275521028, guid: 0bc5756f2b3e0c84abf680f3f0a0ae09, type: 3}
+  preliminaryQuestionnairePrefab: {fileID: 0}
   conditionQuestionnairePrefab: {fileID: 7239881958307507885, guid: c9436073a44a1364e9d8a9be812b0b4c, type: 3}
 --- !u!4 &1678913560
 Transform:
@@ -1652,7 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dd9d766ee328c4d9187a8ab471f2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  camera: {fileID: 75886031}
+  camera: {fileID: 0}
 --- !u!1 &1821738323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,83 +1692,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextTaskUI
   ovrSkeleton: {fileID: 380446960}
-  positionOffset: {x: 0.04, y: -0.03, z: 0}
+  positionOffset: {x: 0.04, y: -0.035, z: 0}
   rotationOffset: {x: -87.7, y: 79, z: 192.4}
-  showThreshold: -0.8
-  canvasGroup: {fileID: 939355043}
   nextTaskButton: {fileID: 1351672645}
   infoLabel: {fileID: 1503227827}
---- !u!1 &2111829252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3701386232293779642, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-  m_PrefabInstance: {fileID: 5800669380014408604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2111829258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111829252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 555725d48e9051a4bb6b8d45178c2fdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.VR::OVRPassthroughLayer
-  projectionSurfaceType: 0
-  overlayType: 1
-  compositionDepth: 0
-  hidden: 0
-  overridePerLayerColorScaleAndOffset: 0
-  colorScale: {x: 1, y: 1, z: 1, w: 1}
-  colorOffset: {x: 0, y: 0, z: 0, w: 0}
-  passthroughLayerResumed:
-    m_PersistentCalls:
-      m_Calls: []
-  colorMapEditorType_: 0
-  colorMapEditorGradient:
-    serializedVersion: 2
-    key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  colorMapEditorContrast: 0
-  colorMapEditorBrightness: 0
-  colorMapEditorPosterize: 0
-  colorMapEditorSaturation: 0
-  _colorLutSourceTexture: {fileID: 0}
-  _colorLutTargetTexture: {fileID: 0}
-  _lutWeight: 1
-  _flipLutY: 1
-  serializedSurfaceGeometry: []
-  textureOpacity_: 1
-  edgeRenderingEnabled_: 0
-  edgeColor_: {r: 1, g: 1, b: 1, a: 1}
-  colorMapType: 0
 --- !u!1001 &3788866060331620247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1974,43 +1828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Rig
       objectReference: {fileID: 0}
-    - target: {fileID: 4783955955537768855, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      propertyPath: _interactableFilters.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4783955955537768855, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      propertyPath: '_interactableFilters.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4995163926614198350, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      propertyPath: _interactableFilters.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4995163926614198350, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      propertyPath: '_interactableFilters.Array.data[0]'
-      value: 
-      objectReference: {fileID: 305919862}
-    - target: {fileID: 8934037362742045691, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      propertyPath: _interactableFilters.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934037362742045691, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      propertyPath: '_interactableFilters.Array.data[0]'
-      value: 
-      objectReference: {fileID: 552331784}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3701386232293779642, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2111829258}
-    - targetCorrespondingSourceObject: {fileID: 3924938850105419366, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 552331784}
-    - targetCorrespondingSourceObject: {fileID: 636801484117771731, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 305919862}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414d7cc715eec3d4abe19b373e6ab6ef, type: 3}
 --- !u!1001 &8711160990048118466
 PrefabInstance:
@@ -2079,7 +1900,7 @@ SceneRoots:
   - {fileID: 5800669380014408604}
   - {fileID: 8711160990048118466}
   - {fileID: 3788866060331620247}
+  - {fileID: 1678913560}
   - {fileID: 1770664823}
   - {fileID: 1935327797}
   - {fileID: 1821738324}
-  - {fileID: 1678913560}

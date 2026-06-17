@@ -52,8 +52,10 @@ namespace Conditions
 
             int markerId = ParsePayload(trackable);
 
-            PanelData markerData = StudyConfig.GetPanelData(markerId);
-            InstructionPanel prefab = GetPanelPrefab(markerData.panelType);
+            PanelData panelData = StudyConfig.GetPanelData(markerId);
+            if (panelData == PanelData.Invalid) return;
+
+            InstructionPanel prefab = GetPanelPrefab(panelData.panelType);
 
             InstructionPanel instance = Instantiate(prefab, trackable.transform);
 
@@ -61,7 +63,7 @@ namespace Conditions
             instance.transform.localPosition = positionOffset;
             instance.transform.localRotation = Quaternion.Euler(rotationOffset);
 
-            instance.UpdateData(markerData);
+            instance.UpdateData(panelData);
         }
 
         private void OnTrackableRemoved(MRUKTrackable trackable)

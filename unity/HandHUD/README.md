@@ -18,6 +18,7 @@
 1. Camera Rig
 2. Passthrough
 3. Passthrough Camera Access
+4. Interactions Rig
 
 ## Notes
 - Need to set 'Project Settings -> Player -> Active Input Handling' to 'Both'
@@ -55,7 +56,6 @@ Uses hand anchor provided by Meta SDK CameraRig building block, which provides p
 
 ### Todo:
 - make less shaky
-- depends on rotation need to fix that
 
 ## 🟡 Tablet / Paper baseline - DONE
 No need to dev.

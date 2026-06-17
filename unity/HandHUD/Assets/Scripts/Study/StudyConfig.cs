@@ -7,8 +7,8 @@ namespace Study
 {
     public enum SuperBlock
     {
-        NoGloveFirst,
-        GloveFirst,
+        NoGlove,
+        Glove,
     }
 
     public enum Condition
@@ -33,7 +33,7 @@ namespace Study
 
         private static readonly PanelData[] TaskList =
         {
-            new (new Color32(139, 125, 186, 255), "Connect the color-coded wires to the device",
+            new(new Color32(139, 125, 186, 255), "Connect the color-coded wires to the device",
                 PanelType.ImageAndText, null // TODO
             ),
             new(new Color32(95, 168, 211, 255),
@@ -59,16 +59,16 @@ namespace Study
 
         public static PanelData GetPanelData(int idx)
         {
-            if (idx < 0 || idx >= TasksPerCondition)
-                throw new ArgumentOutOfRangeException(nameof(idx), "idx out of range.");
-            return TaskList[idx];
+            if (idx >= 0 && idx < TasksPerCondition)
+                return TaskList[idx];
+            return PanelData.Invalid;
         }
 
-        public static Condition GetCondition(Participant participant, int conditionIdx)
+        public static Condition GetCondition(int latinSquareGroup, int conditionIdx)
         {
             if (conditionIdx < 0 || conditionIdx >= ConditionsPerSuperBlock)
                 throw new ArgumentOutOfRangeException(nameof(conditionIdx), "conditionIdx out of range.");
-            return ConditionOrders[participant.LatinSquareGroup][conditionIdx];
+            return ConditionOrders[latinSquareGroup][conditionIdx];
         }
     }
 }

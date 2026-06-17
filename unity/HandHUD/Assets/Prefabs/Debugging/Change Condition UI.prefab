@@ -130,10 +130,10 @@ RectTransform:
   - {fileID: 7942460761299325933}
   m_Father: {fileID: 6775711905079671461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 720.4167, y: -78.085}
+  m_SizeDelta: {x: 192.16667, y: 156.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5792112807011898879
 CanvasRenderer:
@@ -483,10 +483,10 @@ RectTransform:
   - {fileID: 7034369100293850594}
   m_Father: {fileID: 6775711905079671461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 448.25003, y: -78.085}
+  m_SizeDelta: {x: 192.16667, y: 156.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4830056518633955881
 CanvasRenderer:
@@ -586,7 +586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7453173700645652242
 Transform:
   m_ObjectHideFlags: 0
@@ -657,10 +657,10 @@ RectTransform:
   - {fileID: 7931535569712665663}
   m_Father: {fileID: 7671555305826945790}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 156.17}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 448.25, y: -231.25998}
+  m_SizeDelta: {x: 896.5, y: 156.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5147482656159671131
 MonoBehaviour:
@@ -723,7 +723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7502061334862404140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -738,10 +738,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7671555305826945790}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 448.25, y: -359.34497}
-  m_SizeDelta: {x: 896.5, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7746010846561320673
 GameObject:
@@ -776,10 +776,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7671555305826945790}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 153.17499}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 448.25, y: -76.587494}
+  m_SizeDelta: {x: 896.5, y: 153.17499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5026316942855394766
 CanvasRenderer:
@@ -1040,10 +1040,10 @@ RectTransform:
   - {fileID: 1586784836971070715}
   m_Father: {fileID: 6775711905079671461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 176.08334, y: -78.085}
+  m_SizeDelta: {x: 192.16667, y: 156.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5085986173845844816
 CanvasRenderer:
@@ -1278,6 +1278,7 @@ GameObject:
   - component: {fileID: 2603003361400859188}
   - component: {fileID: 9071075220658326882}
   - component: {fileID: 1961402820269438880}
+  - component: {fileID: 7792845076998282922}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1407,6 +1408,34 @@ MonoBehaviour:
   _selectSurface: {fileID: 0}
   _movementProvider: {fileID: 0}
   _tiebreakerScore: 0
+--- !u!114 &7792845076998282922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8839645545938603674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee10491ef6d5d1d49a270cf6b09bdc19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Oculus.VR::OVROverlayCanvas
+  _mipmapMode: 0
+  _dynamicResolution: 1
+  _redrawResolutionThreshold: 2147483647
+  rectTransform: {fileID: 7277235931300024036}
+  maxTextureSize: 2048
+  manualRedraw: 0
+  renderInterval: 1
+  renderIntervalFrameOffset: 0
+  superSample: 0
+  layer: 5
+  opacity: 2
+  shape: 0
+  curveRadius: 1
+  overlapMask: 0
+  compositionMode: 1
+  _overlayEnabled: 1
 --- !u!1 &9074256528075821526
 GameObject:
   m_ObjectHideFlags: 0

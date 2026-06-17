@@ -7,7 +7,7 @@ namespace Questionnaire
 {
     public class QuestionnaireController : MonoBehaviour
     {
-        public static event Action OnQuestionnaireCompleted;
+        public event Action<QuestionnaireResult> OnQuestionnaireCompleted;
 
         private enum QuestionnaireState { ShowingTitle, ShowingQuestions }
         private QuestionnaireState currentState = QuestionnaireState.ShowingTitle;
@@ -208,10 +208,10 @@ namespace Questionnaire
                 if (model.currentQuestionIndex == model.GetTotalQuestions() - 1)
                 {
                     isSubmitting = true;
-                    model.SubmitData(currentParticipantID);
+                    var results = model.SubmitData(currentParticipantID);
                     questionnairePanel.SetActive(false);
                     Debug.Log($"Questionnaire '{model.QuestionnaireName}' finished for {currentParticipantID}.");
-                    OnQuestionnaireCompleted?.Invoke();
+                    OnQuestionnaireCompleted?.Invoke(results);
                     return;
                 }
                 else

@@ -29,7 +29,7 @@ namespace Questionnaire
 
             Debug.Log($"Standalone mode. Using default ID: {participantID}");
 
-            QuestionnaireController.OnQuestionnaireCompleted += HandleQuestionnaireCompleted;
+            questionnaireController.OnQuestionnaireCompleted += HandleQuestionnaireCompleted;
 
             if (questionnaireController != null)
             {
@@ -44,7 +44,7 @@ namespace Questionnaire
 
         private void OnDestroy()
         {
-            QuestionnaireController.OnQuestionnaireCompleted -= HandleQuestionnaireCompleted;
+            questionnaireController.OnQuestionnaireCompleted -= HandleQuestionnaireCompleted;
         }
 
         private void StartNextQuestionnaire(string participantID)
@@ -62,7 +62,7 @@ namespace Questionnaire
             questionnaireController.StartQuestionnaire(nextFile, participantID);
         }
 
-        private void HandleQuestionnaireCompleted()
+        private void HandleQuestionnaireCompleted(QuestionnaireResult _)
         {
             // Default session data (change if needed)
             string participantID = DefaultParticipantID;

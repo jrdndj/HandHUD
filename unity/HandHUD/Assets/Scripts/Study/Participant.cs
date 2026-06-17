@@ -1,20 +1,24 @@
-﻿using System;
+﻿using static Study.StudyConfig;
 
 namespace Study
 {
     public class Participant
     {
-        public SuperBlock SuperBlock { get; }
-        public int LatinSquareGroup { get; }
+        public readonly int ParticipantNo;
+        public readonly int LatinSquareGroup;
+        public readonly SuperBlock SuperBlockGroup;
 
-        public Participant(int latinSquareGroup, SuperBlock superBlock)
+        public Participant(int participantNo)
         {
-            if (latinSquareGroup < 0 || latinSquareGroup >= StudyConfig.LatinSquareGroupCount)
-                throw new ArgumentException(
-                    $"latinSquareGroup must be between 0 and {StudyConfig.LatinSquareGroupCount - 1}");
+            int idx = (participantNo - 1) % (ConditionsPerSuperBlock * SuperBlockCount);
+            int latinSquareGroup = idx % LatinSquareGroupCount;
 
+            ParticipantNo = participantNo;
+            SuperBlockGroup = idx < 3
+                ? SuperBlock.NoGlove
+                : SuperBlock.Glove;
+            ;
             LatinSquareGroup = latinSquareGroup;
-            SuperBlock = superBlock;
         }
     }
 }

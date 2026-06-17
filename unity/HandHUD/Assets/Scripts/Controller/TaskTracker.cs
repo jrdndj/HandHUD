@@ -5,21 +5,18 @@ using UnityEngine;
 
 namespace Controller
 {
-    public class TaskTracker : MonoBehaviour
+    public static class TaskTracker
     {
-        private void OnEnable()
+        private static double _startTime;
+
+        public static void TimerStart()
         {
-            TaskController.OnTaskComplete += OnTaskControllerOnOnTaskComplete;
+            _startTime = Time.timeAsDouble;
         }
 
-        private void OnDisable()
+        public static double TimerEnd()
         {
-            TaskController.OnTaskComplete -= OnTaskControllerOnOnTaskComplete;
-        }
-
-        private void OnTaskControllerOnOnTaskComplete(int superBlockIdx, int conditionIdx, int taskIdx)
-        {
-            Debug.Log($"TaskTracker: Superblock {superBlockIdx}, Condition {conditionIdx}, Task {taskIdx}");
+            return Time.timeAsDouble - _startTime;
         }
     }
 }

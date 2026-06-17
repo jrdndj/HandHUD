@@ -9,7 +9,7 @@ namespace Questionnaire
     {
         private TextAsset jsonFile;
 
-        private QuestionnaireData data;
+        public QuestionnaireData data;
         public int currentQuestionIndex { get; private set; }
         // Using float for numeric scores
         public Dictionary<string, float> sessionResponses = new Dictionary<string, float>();
@@ -72,7 +72,7 @@ namespace Questionnaire
         }
 
         // Accepts participantID from Controller
-        public void SubmitData(string participantID)
+        public QuestionnaireResult SubmitData(string participantID)
         {
             // 1. Create the new result and populate it with all necessary info
             QuestionnaireResult newResult = new QuestionnaireResult
@@ -135,6 +135,8 @@ namespace Questionnaire
             {
                 Debug.LogError($"Failed to save JSON: {e.Message}");
             }
+
+            return newResult;
         }
 
         public QuestionData GetQuestionAtIndex(int index)

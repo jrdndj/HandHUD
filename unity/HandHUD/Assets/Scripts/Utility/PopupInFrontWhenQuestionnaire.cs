@@ -9,12 +9,12 @@ namespace Utility
 
         private void OnEnable()
         {
-            TaskController.OnStateChanged += OnTaskControllerOnOnStateChanged;
+            TaskController.Instance.OnStateChanged += OnTaskControllerOnOnStateChanged;
         }
 
         private void OnDisable()
         {
-            TaskController.OnStateChanged -= OnTaskControllerOnOnStateChanged;
+            TaskController.Instance.OnStateChanged -= OnTaskControllerOnOnStateChanged;
         }
 
         private void Start()
@@ -38,7 +38,7 @@ namespace Utility
 
         private void PopupQuestionnaire()
         {
-            const float distance = 0.55f;
+            const float distance = 0.6f;
             const float verticalOffset = -0.2f;
 
             Vector3 forward = camera.transform.forward;

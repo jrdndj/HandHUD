@@ -1,11 +1,10 @@
 using System;
+using System.Collections;
 using Conditions;
 using Instruction_Panels;
 using Questionnaire;
 using Study;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Controller
 {
@@ -30,7 +29,9 @@ namespace Controller
         [SerializeField] private QuestionnaireManager preliminaryQuestionnairePrefab;
         [SerializeField] private QuestionnaireManager conditionQuestionnairePrefab;
 
+        private StudyDataCollector _studyDataCollector;
         private Participant _participant;
+
         private int _currentConditionIdx = 0;
         private int _currentTaskIdx = 0;
         private int _currentSuperBlockIdx = 0;
@@ -39,13 +40,8 @@ namespace Controller
 
         private StudyState _state = (StudyState)(-1);
 
-        public TaskController(QuestionnaireManager preliminaryQuestionnairePrefab)
-        {
-            this.preliminaryQuestionnairePrefab = preliminaryQuestionnairePrefab;
-        }
-
-        public static event Action<int, int, int> OnTaskComplete;
-        public static event Action<StudyState> OnStateChanged;
+        public event Action<int, int, int> OnTaskComplete;
+        public event Action<StudyState> OnStateChanged;
 
         private void Awake()
         {
@@ -60,10 +56,7 @@ namespace Controller
                 return;
             }
 
-            // TODO: dont make participant here
-            _participant = new Participant(0, SuperBlock.GloveFirst);
-
-            EnterCondition();
+            StartCoroutine(EnterPreliminaryQuestionnaire()); // entry point :3
         }
 
         private void SetState(StudyState state)
@@ -79,6 +72,9 @@ namespace Controller
         {
             if (_state is StudyState.Finished or StudyState.ConditionQuestionnaire) return;
 
+            _studyDataCollector.RecordTask(_currentTaskIdx, TaskTracker.TimerEnd());
+            OnTaskComplete?.Invoke(_currentSuperBlockIdx, _currentConditionIdx, _currentTaskIdx);
+
             if (_currentTaskIdx + 1 < StudyConfig.TasksPerCondition)
             {
                 _currentTaskIdx++;
@@ -86,26 +82,57 @@ namespace Controller
                 PanelData panelData = StudyConfig.GetPanelData(_currentTaskIdx);
                 UpdateCurrentPanel(panelData);
 
-                OnTaskComplete?.Invoke(_currentSuperBlockIdx, _currentConditionIdx, _currentTaskIdx);
+                TaskTracker.TimerStart();
+
                 return;
             }
 
             EnterConditionQuestionnaire();
         }
 
+        private IEnumerator EnterPreliminaryQuestionnaire()
+        {
+            yield return new WaitForSeconds(2); // sometimes it loads too early
+
+            SetState(StudyState.ConditionQuestionnaire);
+            SwitchCondition(Condition.None);
+
+            // instantiate questionnaire and goto next condition after its done
+            QuestionnaireManager questionnaire = Instantiate(preliminaryQuestionnairePrefab, questionnaireParent);
+            questionnaire.GetComponent<QuestionnaireController>().OnQuestionnaireCompleted += (result) =>
+                OnPreliminaryQuestionnaireFinished(questionnaire, result);
+        }
+
         private void EnterConditionQuestionnaire()
         {
             SetState(StudyState.ConditionQuestionnaire);
-
             SwitchCondition(Condition.None);
 
+            // instantiate questionnaire and goto next condition after its done
             QuestionnaireManager questionnaire = Instantiate(conditionQuestionnairePrefab, questionnaireParent);
             questionnaire.OnSequenceFinished += () => OnConditionQuestionnaireFinished(questionnaire);
+            questionnaire.GetComponent<QuestionnaireController>().OnQuestionnaireCompleted +=
+                _studyDataCollector.OnQuestionnaireCompleted;
         }
 
-        private void OnConditionQuestionnaireFinished(QuestionnaireManager manager)
+        private void OnPreliminaryQuestionnaireFinished(QuestionnaireManager questionnaire, QuestionnaireResult result)
         {
-            Destroy(manager.gameObject);
+            _participant =
+                new Participant((int)result.responses[0].score +
+                                1); // first questionnaire has only 1 question which is participantNo (0-based)
+            _studyDataCollector = new StudyDataCollector(_participant);
+
+            Destroy(questionnaire.gameObject);
+
+            if (_state == StudyState.Finished)
+                return;
+
+            EnterCondition();
+        }
+
+        private void OnConditionQuestionnaireFinished(QuestionnaireManager questionnaire)
+        {
+            Destroy(questionnaire.gameObject);
 
             AdvanceCondition();
 
@@ -130,21 +157,27 @@ namespace Controller
 
         private void AdvanceSuperBlock()
         {
+            if (_state is StudyState.Finished) return;
+
             _currentSuperBlockIdx++;
             if (_currentSuperBlockIdx < StudyConfig.SuperBlockCount) return;
 
             SetState(StudyState.Finished);
+            _studyDataCollector.Export();
         }
 
         private void EnterCondition()
         {
             SetState(StudyState.RunningTask);
 
-            Condition condition = StudyConfig.GetCondition(_participant, _currentConditionIdx);
+            Condition condition = StudyConfig.GetCondition(_participant.LatinSquareGroup, _currentConditionIdx);
             SwitchCondition(condition);
 
             PanelData panelData = StudyConfig.GetPanelData(_currentTaskIdx);
             UpdateCurrentPanel(panelData);
+
+            _studyDataCollector.SetContext(GetCurrentSuperBlock(), condition);
+            TaskTracker.TimerStart();
         }
 
         public void SwitchCondition(Condition condition)
@@ -194,13 +227,22 @@ namespace Controller
 
         private ConditionManager GetCurrentManager()
         {
-            return StudyConfig.GetCondition(_participant, _currentConditionIdx) switch
+            return StudyConfig.GetCondition(_participant.LatinSquareGroup, _currentConditionIdx) switch
             {
                 Condition.WorldAnchored => waManager,
                 Condition.ForearmAnchored => faManager,
                 Condition.HandProximal => hpManager,
                 _ => throw new ArgumentOutOfRangeException()
             };
+        }
+
+        private SuperBlock GetCurrentSuperBlock()
+        {
+            return _currentSuperBlockIdx == 0
+                ? _participant.SuperBlockGroup
+                : _participant.SuperBlockGroup == SuperBlock.Glove
+                    ? SuperBlock.NoGlove
+                    : SuperBlock.Glove;
         }
     }
 }
