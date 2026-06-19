@@ -34,16 +34,16 @@ namespace Study
         private static readonly PanelData[] TaskList =
         {
             new(new Color32(139, 125, 186, 255), "Connect the color-coded wires to the device",
-                PanelType.ImageAndText, null // TODO
+                PanelType.TextOnly, null // TODO
             ),
             new(new Color32(95, 168, 211, 255),
-                "Use the tweezers to build the shape using the colored blocks",
-                PanelType.ImageAndText,
+                "Use the tweezers to remove the blocks and place them in the right color slot",
+                PanelType.TextOnly,
                 null // TODO
             ),
             new(new Color32(120, 198, 163, 255),
-                "Rotate the valve fully clockwise then counter-clockwise",
-                PanelType.ImageAndText,
+                "Rotate the valve 360 degrees until the sign is aligned with the colored line",
+                PanelType.TextOnly,
                 null // TODO
             ),
         };
