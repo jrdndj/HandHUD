@@ -6,7 +6,7 @@
       "type": "slider",
       "text": "How mentally demanding was the task?",
       "minValue": 0.0,
-      "maxValue": 20.0,
+      "maxValue": 19.0,
       "choices": ["Very Low", "Very High"]
     },
     {
@@ -14,7 +14,7 @@
       "type": "slider",
       "text": "How physically demanding was the task?",
       "minValue": 0.0,
-      "maxValue": 20.0,
+      "maxValue": 19.0,
       "choices": ["Very Low", "Very High"]
     },
     {
@@ -22,7 +22,7 @@
       "type": "slider",
       "text": "How hurried or rushed was the pace of the task?",
       "minValue": 0.0,
-      "maxValue": 20.0,
+      "maxValue": 19.0,
       "choices": ["Very Low", "Very High"]
     },
     {
@@ -30,7 +30,7 @@
       "type": "slider",
       "text": "How successful were you in accomplishing what you were asked to do?",
       "minValue": 0.0,
-      "maxValue": 20.0,
+      "maxValue": 19.0,
       "choices": ["Perfect", "Failure"]
     },
     {
@@ -38,7 +38,7 @@
       "type": "slider",
       "text": "How hard did you have to work to accomplish your level of performance?",
       "minValue": 0.0,
-      "maxValue": 20.0,
+      "maxValue": 19.0,
       "choices": ["Very Low", "Very High"]
     },
     {
@@ -46,7 +46,7 @@
       "type": "slider",
       "text": "How insecure, discouraged, irritated, stressed, and annoyed were you?",
       "minValue": 0.0,
-      "maxValue": 20.0,
+      "maxValue": 19.0,
       "choices": ["Very Low", "Very High"]
     }
   ]
